@@ -1,6 +1,8 @@
 package com.example.ui.components
 
 import android.content.ClipData
+import android.content.Intent
+import android.net.Uri
 import android.content.ClipboardManager
 import android.content.Context
 import androidx.compose.foundation.background
@@ -22,6 +24,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.ContentCopy
+import androidx.compose.material.icons.filled.Link
+import androidx.compose.material.icons.filled.OpenInNew
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Folder
 import androidx.compose.material.icons.filled.Rocket
@@ -189,51 +193,80 @@ fun SfsDetailModal(
 
                 Spacer(modifier = Modifier.height(14.dp))
 
-                // Blueprint Code Container Header
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Text(
-                        text = "Kode Blueprint SFS (Blueprint.txt):",
-                        fontSize = 13.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.onSurface
-                    )
+                // SFS Blueprint Link Section
+                Text(
+                    text = "Link SFS Blueprint:",
+                    fontSize = 13.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.onSurface
+                )
 
-                    IconButton(
-                        onClick = {
-                            val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-                            val clip = ClipData.newPlainText("SFS Blueprint Data", blueprint.blueprintData)
-                            clipboard.setPrimaryClip(clip)
-                            onCopyBlueprintToast()
-                        }
+                Spacer(modifier = Modifier.height(8.dp))
+
+                // Link Blueprint - bisa diklik
+                Surface(
+                    shape = RoundedCornerShape(10.dp),
+                    color = MaterialTheme.colorScheme.surfaceVariant,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Row(
+                        modifier = Modifier.padding(12.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Icon(
-                            imageVector = Icons.Default.ContentCopy,
-                            contentDescription = "Salin Teks Blueprint",
-                            tint = SunsetOrange,
+                            imageVector = Icons.Default.Link,
+                            contentDescription = null,
+                            tint = SkyBlue,
                             modifier = Modifier.size(18.dp)
                         )
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text(
+                            text = if (blueprint.blueprintData.startsWith("http")) blueprint.blueprintData
+                                   else "sfs://blueprint/${blueprint.title.replace(" ", "_")}",
+                            fontSize = 12.sp,
+                            fontFamily = FontFamily.Monospace,
+                            color = SkyBlue,
+                            modifier = Modifier.weight(1f)
+                        )
+                        IconButton(
+                            onClick = {
+                                val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                                val clip = ClipData.newPlainText("SFS Blueprint Link", blueprint.blueprintData)
+                                clipboard.setPrimaryClip(clip)
+                                onCopyBlueprintToast()
+                            },
+                            modifier = Modifier.size(32.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Default.ContentCopy,
+                                contentDescription = "Salin Link Blueprint",
+                                tint = SunsetOrange,
+                                modifier = Modifier.size(16.dp)
+                            )
+                        }
                     }
                 }
 
-                Spacer(modifier = Modifier.height(4.dp))
+                Spacer(modifier = Modifier.height(8.dp))
 
-                // Monospace Blueprint Code Box
-                Surface(
-                    shape = RoundedCornerShape(10.dp),
-                    color = Color(0xFF0F172A),
+                // Tombol buka link blueprint
+                Button(
+                    onClick = {
+                        try {
+                            val link = if (blueprint.blueprintData.startsWith("http")) blueprint.blueprintData
+                                       else "https://spaceflight-simulator.fandom.com/wiki/Blueprint"
+                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
+                            context.startActivity(intent)
+                        } catch (e: Exception) { }
+                    },
+                    shape = RoundedCornerShape(12.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = SkyBlue),
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    Text(
-                        text = blueprint.blueprintData,
-                        fontSize = 11.sp,
-                        fontFamily = FontFamily.Monospace,
-                        color = SunsetOrange,
-                        modifier = Modifier.padding(12.dp)
-                    )
+                    Icon(imageVector = Icons.Default.OpenInNew, contentDescription = null)
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text(text = "Buka Link Blueprint SFS", fontSize = 14.sp, fontWeight = FontWeight.Bold)
                 }
 
                 Spacer(modifier = Modifier.height(14.dp))

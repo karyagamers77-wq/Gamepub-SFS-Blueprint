@@ -30,6 +30,7 @@ import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Download
 import androidx.compose.material.icons.filled.OpenInNew
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -327,28 +328,48 @@ fun GameDetailModal(
 
                 Spacer(modifier = Modifier.height(16.dp))
 
+                // Share APK Button
+                Button(
+                    onClick = {
+                        try {
+                            val shareIntent = Intent(Intent.ACTION_SEND).apply {
+                                type = "text/plain"
+                                putExtra(Intent.EXTRA_SUBJECT, game.title)
+                                putExtra(Intent.EXTRA_TEXT,
+                                    "🎮 ${game.title}\n" +
+                                    "Developer: ${game.developer}\n" +
+                                    "Versi: ${game.version}\n" +
+                                    "Download APK: ${game.downloadUrl}"
+                                )
+                            }
+                            context.startActivity(Intent.createChooser(shareIntent, "Bagikan Game via"))
+                        } catch (e: Exception) { }
+                    },
+                    shape = RoundedCornerShape(12.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = VividPurple),
+                    modifier = Modifier.fillMaxWidth().testTag("modal_share_game")
+                ) {
+                    Icon(imageVector = Icons.Default.Share, contentDescription = null)
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text(text = "Bagikan Game", fontSize = 14.sp, fontWeight = FontWeight.Bold)
+                }
+
+                Spacer(modifier = Modifier.height(8.dp))
+
                 // Launch External Link Button
                 Button(
                     onClick = {
                         try {
                             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(game.downloadUrl))
                             context.startActivity(intent)
-                        } catch (e: Exception) {
-                            // Handled
-                        }
+                        } catch (e: Exception) { }
                     },
                     shape = RoundedCornerShape(12.dp),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .testTag("modal_open_game_link")
+                    modifier = Modifier.fillMaxWidth().testTag("modal_open_game_link")
                 ) {
                     Icon(imageVector = Icons.Default.OpenInNew, contentDescription = null)
                     Spacer(modifier = Modifier.width(8.dp))
-                    Text(
-                        text = "Buka Tautan HTTP/HTTPS Game",
-                        fontSize = 14.sp,
-                        fontWeight = FontWeight.Bold
-                    )
+                    Text(text = "Buka Tautan Game", fontSize = 14.sp, fontWeight = FontWeight.Bold)
                 }
             }
         }
