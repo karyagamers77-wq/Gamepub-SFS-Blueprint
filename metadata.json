@@ -1,0 +1,6 @@
+{
+  "name": "GamePub & SFS Hub",
+  "description": "Platform publikasi game & APK multi-bahasa, pengubah tautan HTML/HTTP/HTTPS, dan pusat berbagi blueprint Space Flight Simulator.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
