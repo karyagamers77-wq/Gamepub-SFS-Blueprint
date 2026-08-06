@@ -51,8 +51,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.data.local.LinkConversionLog
-import com.example.ui.theme.CyanPrimary
-import com.example.ui.theme.EmeraldTertiary
+import com.example.ui.theme.SkyBlue
+import com.example.ui.theme.MintGreen
 import com.example.util.LinkConversionResult
 
 @Composable
@@ -214,7 +214,7 @@ fun LinkConverterScreen(
                 Card(
                     shape = RoundedCornerShape(20.dp),
                     colors = CardDefaults.cardColors(
-                        containerColor = if (isHttps) EmeraldTertiary.copy(alpha = 0.12f) else CyanPrimary.copy(alpha = 0.12f)
+                        containerColor = if (isHttps) MintGreen.copy(alpha = 0.12f) else SkyBlue.copy(alpha = 0.12f)
                     ),
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -228,7 +228,7 @@ fun LinkConverterScreen(
                                 Icon(
                                     imageVector = Icons.Default.CheckCircle,
                                     contentDescription = "Sukses",
-                                    tint = if (isHttps) EmeraldTertiary else CyanPrimary,
+                                    tint = if (isHttps) MintGreen else SkyBlue,
                                     modifier = Modifier.size(20.dp)
                                 )
                                 Spacer(modifier = Modifier.width(6.dp))
@@ -242,7 +242,7 @@ fun LinkConverterScreen(
 
                             Surface(
                                 shape = RoundedCornerShape(8.dp),
-                                color = if (isHttps) EmeraldTertiary else CyanPrimary
+                                color = if (isHttps) MintGreen else SkyBlue
                             ) {
                                 Text(
                                     text = if (isHttps) "HTTPS (TETAP)" else "HTTP (STANDAR)",
@@ -381,7 +381,7 @@ fun LinkConverterScreen(
                                 text = "Protokol: ${log.protocol}",
                                 fontSize = 11.sp,
                                 fontWeight = FontWeight.Bold,
-                                color = if (log.protocol == "HTTPS") EmeraldTertiary else CyanPrimary
+                                color = if (log.protocol == "HTTPS") MintGreen else SkyBlue
                             )
 
                             IconButton(

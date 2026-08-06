@@ -47,10 +47,10 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.data.local.SfsBlueprintItem
-import com.example.ui.theme.CyanPrimary
-import com.example.ui.theme.EmeraldTertiary
-import com.example.ui.theme.GoldSecondary
-import com.example.ui.theme.RoseAccent
+import com.example.ui.theme.SkyBlue
+import com.example.ui.theme.MintGreen
+import com.example.ui.theme.SunsetOrange
+import com.example.ui.theme.HotPink
 
 @Composable
 fun SfsBlueprintCard(
@@ -87,8 +87,8 @@ fun SfsBlueprintCard(
             ) {
                 Surface(
                     shape = RoundedCornerShape(8.dp),
-                    color = GoldSecondary.copy(alpha = 0.15f),
-                    border = androidx.compose.foundation.BorderStroke(1.dp, GoldSecondary.copy(alpha = 0.4f))
+                    color = SunsetOrange.copy(alpha = 0.15f),
+                    border = androidx.compose.foundation.BorderStroke(1.dp, SunsetOrange.copy(alpha = 0.4f))
                 ) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
@@ -97,7 +97,7 @@ fun SfsBlueprintCard(
                         Icon(
                             imageVector = Icons.Default.Rocket,
                             contentDescription = "SFS Rocket Category",
-                            tint = GoldSecondary,
+                            tint = SunsetOrange,
                             modifier = Modifier.size(14.dp)
                         )
                         Spacer(modifier = Modifier.width(6.dp))
@@ -105,7 +105,7 @@ fun SfsBlueprintCard(
                             text = blueprint.rocketCategory,
                             fontSize = 12.sp,
                             fontWeight = FontWeight.Bold,
-                            color = GoldSecondary
+                            color = SunsetOrange
                         )
                     }
                 }
@@ -121,7 +121,7 @@ fun SfsBlueprintCard(
                             Icon(
                                 imageVector = Icons.Default.Favorite,
                                 contentDescription = "Suka",
-                                tint = RoseAccent,
+                                tint = HotPink,
                                 modifier = Modifier.size(16.dp)
                             )
                             Spacer(modifier = Modifier.width(2.dp))
@@ -143,7 +143,7 @@ fun SfsBlueprintCard(
                         Icon(
                             imageVector = if (blueprint.isBookmarked) Icons.Default.Star else Icons.Outlined.StarBorder,
                             contentDescription = "Favorit",
-                            tint = if (blueprint.isBookmarked) GoldSecondary else MaterialTheme.colorScheme.onSurfaceVariant
+                            tint = if (blueprint.isBookmarked) SunsetOrange else MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     }
                 }
@@ -164,7 +164,7 @@ fun SfsBlueprintCard(
             Text(
                 text = "Karya Space Flight Simulator oleh ${blueprint.author}",
                 fontSize = 12.sp,
-                color = CyanPrimary,
+                color = SkyBlue,
                 fontWeight = FontWeight.Medium
             )
 
@@ -201,7 +201,7 @@ fun SfsBlueprintCard(
                 Text(
                     text = blueprint.targetDestination,
                     fontSize = 12.sp,
-                    color = EmeraldTertiary,
+                    color = MintGreen,
                     fontWeight = FontWeight.Medium
                 )
             }
@@ -249,7 +249,7 @@ fun SfsBlueprintCard(
                     },
                     shape = RoundedCornerShape(12.dp),
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = GoldSecondary
+                        containerColor = SunsetOrange
                     ),
                     modifier = Modifier
                         .weight(1.4f)

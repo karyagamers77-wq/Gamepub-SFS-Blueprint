@@ -52,8 +52,8 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import com.example.data.local.GameItem
-import com.example.ui.theme.EmeraldTertiary
-import com.example.ui.theme.GoldSecondary
+import com.example.ui.theme.MintGreen
+import com.example.ui.theme.SunsetOrange
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -175,7 +175,7 @@ fun GameDetailModal(
                                 Icon(
                                     imageVector = Icons.Default.Star,
                                     contentDescription = null,
-                                    tint = GoldSecondary,
+                                    tint = SunsetOrange,
                                     modifier = Modifier.size(16.dp)
                                 )
                                 Spacer(modifier = Modifier.width(4.dp))
@@ -210,7 +210,7 @@ fun GameDetailModal(
                                 text = if (isHttps) "HTTPS" else "HTTP",
                                 fontSize = 14.sp,
                                 fontWeight = FontWeight.Bold,
-                                color = if (isHttps) EmeraldTertiary else MaterialTheme.colorScheme.primary
+                                color = if (isHttps) MintGreen else MaterialTheme.colorScheme.primary
                             )
                             Text("Protokol", fontSize = 11.sp, color = MaterialTheme.colorScheme.onSurfaceVariant)
                         }

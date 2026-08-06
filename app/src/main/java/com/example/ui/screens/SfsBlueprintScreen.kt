@@ -44,7 +44,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.data.local.SfsBlueprintItem
 import com.example.ui.components.SfsBlueprintCard
-import com.example.ui.theme.GoldSecondary
+import com.example.ui.theme.SunsetOrange
 
 @Composable
 fun SfsBlueprintScreen(
@@ -77,13 +77,13 @@ fun SfsBlueprintScreen(
                 ) {
                     Surface(
                         shape = RoundedCornerShape(12.dp),
-                        color = GoldSecondary.copy(alpha = 0.2f),
+                        color = SunsetOrange.copy(alpha = 0.2f),
                         modifier = Modifier.size(44.dp)
                     ) {
                         Icon(
                             imageVector = Icons.Default.Rocket,
                             contentDescription = null,
-                            tint = GoldSecondary,
+                            tint = SunsetOrange,
                             modifier = Modifier
                                 .padding(10.dp)
                                 .fillMaxSize()
@@ -121,7 +121,7 @@ fun SfsBlueprintScreen(
                 Icon(
                     imageVector = Icons.Default.FilterList,
                     contentDescription = "Filter SFS",
-                    tint = GoldSecondary,
+                    tint = SunsetOrange,
                     modifier = Modifier.size(18.dp)
                 )
 
@@ -137,7 +137,7 @@ fun SfsBlueprintScreen(
                             )
                         },
                         colors = FilterChipDefaults.filterChipColors(
-                            selectedContainerColor = GoldSecondary,
+                            selectedContainerColor = SunsetOrange,
                             selectedLabelColor = Color.Black
                         ),
                         shape = RoundedCornerShape(16.dp)
@@ -195,7 +195,7 @@ fun SfsBlueprintScreen(
         // FAB Upload SFS Blueprint
         FloatingActionButton(
             onClick = onUploadClick,
-            containerColor = GoldSecondary,
+            containerColor = SunsetOrange,
             contentColor = Color.Black,
             modifier = Modifier
                 .align(Alignment.BottomEnd)
@@ -239,7 +239,7 @@ private fun EmptySfsView(
             Icon(
                 imageVector = Icons.Default.Rocket,
                 contentDescription = null,
-                tint = GoldSecondary,
+                tint = SunsetOrange,
                 modifier = Modifier
                     .padding(20.dp)
                     .fillMaxSize()

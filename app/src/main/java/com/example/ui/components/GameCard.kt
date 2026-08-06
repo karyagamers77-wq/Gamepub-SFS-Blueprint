@@ -47,10 +47,10 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.data.local.GameItem
-import com.example.ui.theme.CyanPrimary
-import com.example.ui.theme.EmeraldTertiary
-import com.example.ui.theme.GoldSecondary
-import com.example.ui.theme.PurpleAccent
+import com.example.ui.theme.SkyBlue
+import com.example.ui.theme.MintGreen
+import com.example.ui.theme.SunsetOrange
+import com.example.ui.theme.VividPurple
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -118,13 +118,13 @@ fun GameCard(
                     // Protocol Indicator (HTTPS / HTTP)
                     Surface(
                         shape = RoundedCornerShape(6.dp),
-                        color = if (isHttps) EmeraldTertiary.copy(alpha = 0.15f) else CyanPrimary.copy(alpha = 0.15f)
+                        color = if (isHttps) MintGreen.copy(alpha = 0.15f) else SkyBlue.copy(alpha = 0.15f)
                     ) {
                         Text(
                             text = if (isHttps) "HTTPS SECURE" else if (isHttp) "HTTP LINK" else "URL",
                             fontSize = 10.sp,
                             fontWeight = FontWeight.Bold,
-                            color = if (isHttps) EmeraldTertiary else CyanPrimary,
+                            color = if (isHttps) MintGreen else SkyBlue,
                             modifier = Modifier.padding(horizontal = 6.dp, vertical = 3.dp)
                         )
                     }
@@ -140,7 +140,7 @@ fun GameCard(
                         Icon(
                             imageVector = if (game.isBookmarked) Icons.Default.Star else Icons.Outlined.StarBorder,
                             contentDescription = "Favorit",
-                            tint = if (game.isBookmarked) GoldSecondary else MaterialTheme.colorScheme.onSurfaceVariant
+                            tint = if (game.isBookmarked) SunsetOrange else MaterialTheme.colorScheme.onSurfaceVariant
                         )
                     }
                 }
@@ -198,7 +198,7 @@ fun GameCard(
                     Icon(
                         imageVector = Icons.Default.Star,
                         contentDescription = "Rating",
-                        tint = GoldSecondary,
+                        tint = SunsetOrange,
                         modifier = Modifier.size(14.dp)
                     )
                     Spacer(modifier = Modifier.width(2.dp))
@@ -327,12 +327,12 @@ fun GameCard(
 
 fun getEngineColor(engine: String): Color {
     return when {
-        engine.contains("Unity", ignoreCase = true) -> CyanPrimary
+        engine.contains("Unity", ignoreCase = true) -> SkyBlue
         engine.contains("Godot", ignoreCase = true) -> Color(0xFF478CBF)
         engine.contains("HTML5", ignoreCase = true) -> Color(0xFFE44D26)
-        engine.contains("Kotlin", ignoreCase = true) -> PurpleAccent
-        engine.contains("Python", ignoreCase = true) -> GoldSecondary
-        engine.contains("Construct", ignoreCase = true) -> EmeraldTertiary
+        engine.contains("Kotlin", ignoreCase = true) -> VividPurple
+        engine.contains("Python", ignoreCase = true) -> SunsetOrange
+        engine.contains("Construct", ignoreCase = true) -> MintGreen
         engine.contains("Unreal", ignoreCase = true) -> Color(0xFF0E1128)
         else -> Color(0xFF0284C7)
     }

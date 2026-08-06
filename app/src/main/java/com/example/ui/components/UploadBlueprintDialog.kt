@@ -42,7 +42,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
-import com.example.ui.theme.GoldSecondary
+import com.example.ui.theme.SunsetOrange
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -99,7 +99,7 @@ fun UploadBlueprintDialog(
                         Icon(
                             imageVector = Icons.Default.Rocket,
                             contentDescription = "Bagikan Blueprint SFS",
-                            tint = GoldSecondary
+                            tint = SunsetOrange
                         )
                         Spacer(modifier = Modifier.width(8.dp))
                         Text(
@@ -288,7 +288,7 @@ fun UploadBlueprintDialog(
                             }
                         },
                         enabled = title.isNotBlank() && author.isNotBlank() && blueprintData.isNotBlank(),
-                        colors = ButtonDefaults.buttonColors(containerColor = GoldSecondary),
+                        colors = ButtonDefaults.buttonColors(containerColor = SunsetOrange),
                         shape = RoundedCornerShape(12.dp),
                         modifier = Modifier.testTag("submit_upload_sfs_button")
                     ) {

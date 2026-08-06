@@ -45,9 +45,9 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.ui.theme.CyanPrimary
-import com.example.ui.theme.GoldSecondary
-import com.example.ui.theme.PurpleAccent
+import com.example.ui.theme.SkyBlue
+import com.example.ui.theme.SunsetOrange
+import com.example.ui.theme.VividPurple
 
 @Composable
 fun DevGuidesScreen(
@@ -398,7 +398,7 @@ private fun DevGuideExpandableCard(
                             text = guide.codeSnippet,
                             fontSize = 11.sp,
                             fontFamily = FontFamily.Monospace,
-                            color = CyanPrimary,
+                            color = SkyBlue,
                             modifier = Modifier.padding(12.dp)
                         )
                     }
@@ -410,12 +410,12 @@ private fun DevGuideExpandableCard(
 
 private fun getEngineThemeColor(engine: String): Color {
     return when (engine) {
-        "Unity" -> CyanPrimary
+        "Unity" -> SkyBlue
         "Godot" -> Color(0xFF478CBF)
         "HTML5" -> Color(0xFFE44D26)
-        "Python" -> GoldSecondary
-        "Kotlin" -> PurpleAccent
-        "SFS" -> GoldSecondary
-        else -> CyanPrimary
+        "Python" -> SunsetOrange
+        "Kotlin" -> VividPurple
+        "SFS" -> SunsetOrange
+        else -> SkyBlue
     }
 }

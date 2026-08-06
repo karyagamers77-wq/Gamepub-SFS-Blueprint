@@ -45,8 +45,8 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import com.example.data.local.SfsBlueprintItem
-import com.example.ui.theme.CyanPrimary
-import com.example.ui.theme.GoldSecondary
+import com.example.ui.theme.SkyBlue
+import com.example.ui.theme.SunsetOrange
 
 @Composable
 fun SfsDetailModal(
@@ -81,8 +81,8 @@ fun SfsDetailModal(
                 ) {
                     Surface(
                         shape = RoundedCornerShape(8.dp),
-                        color = GoldSecondary.copy(alpha = 0.2f),
-                        border = androidx.compose.foundation.BorderStroke(1.dp, GoldSecondary)
+                        color = SunsetOrange.copy(alpha = 0.2f),
+                        border = androidx.compose.foundation.BorderStroke(1.dp, SunsetOrange)
                     ) {
                         Row(
                             verticalAlignment = Alignment.CenterVertically,
@@ -91,7 +91,7 @@ fun SfsDetailModal(
                             Icon(
                                 imageVector = Icons.Default.Rocket,
                                 contentDescription = null,
-                                tint = GoldSecondary,
+                                tint = SunsetOrange,
                                 modifier = Modifier.size(14.dp)
                             )
                             Spacer(modifier = Modifier.width(6.dp))
@@ -99,7 +99,7 @@ fun SfsDetailModal(
                                 text = blueprint.rocketCategory,
                                 fontSize = 12.sp,
                                 fontWeight = FontWeight.Bold,
-                                color = GoldSecondary
+                                color = SunsetOrange
                             )
                         }
                     }
@@ -134,7 +134,7 @@ fun SfsDetailModal(
                 Text(
                     text = "Diunggah oleh Commander ${blueprint.author}",
                     fontSize = 13.sp,
-                    color = CyanPrimary,
+                    color = SkyBlue,
                     fontWeight = FontWeight.Medium
                 )
 
@@ -213,7 +213,7 @@ fun SfsDetailModal(
                         Icon(
                             imageVector = Icons.Default.ContentCopy,
                             contentDescription = "Salin Teks Blueprint",
-                            tint = GoldSecondary,
+                            tint = SunsetOrange,
                             modifier = Modifier.size(18.dp)
                         )
                     }
@@ -231,7 +231,7 @@ fun SfsDetailModal(
                         text = blueprint.blueprintData,
                         fontSize = 11.sp,
                         fontFamily = FontFamily.Monospace,
-                        color = GoldSecondary,
+                        color = SunsetOrange,
                         modifier = Modifier.padding(12.dp)
                     )
                 }
@@ -284,7 +284,7 @@ fun SfsDetailModal(
                         clipboard.setPrimaryClip(clip)
                         onCopyBlueprintToast()
                     },
-                    colors = ButtonDefaults.buttonColors(containerColor = GoldSecondary),
+                    colors = ButtonDefaults.buttonColors(containerColor = SunsetOrange),
                     shape = RoundedCornerShape(12.dp),
                     modifier = Modifier
                         .fillMaxWidth()

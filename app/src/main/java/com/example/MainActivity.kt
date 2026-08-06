@@ -54,7 +54,7 @@ import com.example.ui.screens.GameHubScreen
 import com.example.ui.screens.LinkConverterScreen
 import com.example.ui.screens.SfsBlueprintScreen
 import com.example.ui.theme.GamePubTheme
-import com.example.ui.theme.GoldSecondary
+import com.example.ui.theme.SunsetOrange
 import com.example.ui.viewmodel.AppTab
 import com.example.ui.viewmodel.MainViewModel
 
@@ -154,8 +154,8 @@ fun MainAppScreen(viewModel: MainViewModel) {
                                 )
                             },
                             colors = NavigationBarItemDefaults.colors(
-                                selectedIconColor = if (tab == AppTab.SFS_BLUEPRINTS) GoldSecondary else MaterialTheme.colorScheme.primary,
-                                selectedTextColor = if (tab == AppTab.SFS_BLUEPRINTS) GoldSecondary else MaterialTheme.colorScheme.primary,
+                                selectedIconColor = if (tab == AppTab.SFS_BLUEPRINTS) SunsetOrange else MaterialTheme.colorScheme.primary,
+                                selectedTextColor = if (tab == AppTab.SFS_BLUEPRINTS) SunsetOrange else MaterialTheme.colorScheme.primary,
                                 indicatorColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.5f)
                             ),
                             modifier = Modifier.testTag("nav_tab_${tab.name.lowercase()}")
